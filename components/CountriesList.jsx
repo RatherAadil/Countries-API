@@ -2,20 +2,25 @@ import React from "react";
 import CountryCard from "./CountryCard";
 import CountriesData from "../CountriesData";
 
-function CountriesList() {
-  const countries = CountriesData.map((country, i) => {
-    return (
-      <CountryCard
-        name={country.name.common}
-        population={country.population}
-        flag={country.flags.svg}
-        region={country.region}
-        capital={country.capital}
-        key={i}
-      />
-    );
-  });
-  return <div className="countries-container">{countries}</div>;
+function CountriesList({ query }) {
+  return (
+    <div className="countries-container">
+      {CountriesData.filter((country) =>
+        country.name.common.toLowerCase().includes(query)
+      ).map((country) => {
+        return (
+          <CountryCard
+            key={country.name.common}
+            name={country.name.common}
+            flag={country.flags.svg}
+            population={country.population}
+            region={country.region}
+            capital={country.capital?.[0]}
+          />
+        );
+      })}
+    </div>
+  );
 }
 
 export default CountriesList;
