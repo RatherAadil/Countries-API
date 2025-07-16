@@ -1,8 +1,8 @@
 import Header from "./components/Header";
 import SearchBar from "./components/SearchBar";
 import SelectMenu from "./components/SelectMenu";
-import CountryCard from "./components/CountryCard";
 import "./app.css";
+import CountriesList from "./components/CountriesList";
 function App() {
   return (
     <>
@@ -12,9 +12,7 @@ function App() {
           <SearchBar />
           <SelectMenu />
         </div>
-        <div className="countries-container">
-          <CountryCard />
-        </div>
+        <CountriesList />
       </main>
     </>
   );
