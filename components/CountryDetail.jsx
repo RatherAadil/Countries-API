@@ -27,6 +27,19 @@ function CountryDetail() {
             .join(", "),
           borders: [],
         });
+
+        if (!data.borders) {
+          data.borders = [];
+        }
+        Promise.all(
+          data.borders.map((border) => {
+            return fetch(`https://restcountries.com/v3.1/alpha/${border}`)
+              .then((res) => res.json())
+              .then(([borderCountry]) => borderCountry.name.common);
+          })
+        ).then((borders) => {
+          setCountryData((prevState) => ({ ...prevState, borders }));
+        });
       })
       .catch((err) => {
         setNotFound(true);
