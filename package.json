@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start":"parcel index.html"
+    "start": "parcel index.html"
   },
   "keywords": [],
   "author": "",
@@ -11,7 +11,8 @@
   "type": "commonjs",
   "dependencies": {
     "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "react-dom": "^19.1.0",
+    "react-router-dom": "^7.8.0"
   },
   "devDependencies": {
     "parcel": "^2.15.4"
