@@ -154,6 +154,11 @@ a {
   }
 }
 
+.shimmer-card {
+  background-color: #ccc;
+  height: 350px;
+}
+
 :root {
   --background-color: white;
   --text-color: black;
