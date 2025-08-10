@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./countryDetail.css";
 import { Link, useParams } from "react-router";
+import CountryDetailShimmer from "./CountryDetailShimmer";
 function CountryDetail() {
   const params = useParams();
   const countryName = params.country;
@@ -48,71 +49,80 @@ function CountryDetail() {
   if (notFound) {
     return <div>Country Not Found</div>;
   }
-  return countryData === null ? (
-    "Loading..."
-  ) : (
-    <main>
-      <div className="country-details-container">
-        <span
-          className="back-btn"
-          onClick={() => {
-            history.back();
-          }}
-        >
-          <i className="fa-solid fa-arrow-left-long"></i>&nbsp;Back
-        </span>
-        <div className="country-details">
-          <img src={countryData.flag} alt="flag" />
-          <div className="details-text-container">
-            <h2></h2>
-            <div className="details-text">
-              <p>
-                <b>Native Name: </b>
-                <span className="native-name">{countryData.nativeName}</span>
-              </p>
-              <p>
-                <b>Population: </b>
-                <span className="population">{countryData.population}</span>
-              </p>
-              <p>
-                <b>Region: </b>
-                <span className="region">{countryData.region}</span>
-              </p>
-              <p>
-                <b>Sub-Region: </b>
-                <span className="sub-region">{countryData.subregion}</span>
-              </p>
-              <p>
-                <b>Capital: </b>
-                <span className="Capital">{countryData.capital}</span>
-              </p>
-              <p>
-                <b>Top Level Domain: </b>
-                <span className="tld">{countryData.tld}</span>
-              </p>
-              <p>
-                <b>Currencies: </b>
-                <span className="Currencies">{countryData.currencies}</span>
-              </p>
-              <p>
-                <b>Languages: </b>
-                <span className="languages">{countryData.languages}</span>
-              </p>
-            </div>
-            {countryData.borders.length !== 0 && (
-              <div className="border-countries">
-                <b>Border countries:</b>&nbsp;
-                {countryData.borders.map((border) => (
-                  <Link key={border} to={`/${border}`}>
-                    {border}
-                  </Link>
-                ))}
+  return (
+    // return countryData === null ? (
+    //   "Loading..."
+    // ) : (
+    <>
+      {countryData === null ? (
+        <CountryDetailShimmer />
+      ) : (
+        <main>
+          <div className="country-details-container">
+            <span
+              className="back-btn"
+              onClick={() => {
+                history.back();
+              }}
+            >
+              <i className="fa-solid fa-arrow-left-long"></i>&nbsp;Back
+            </span>
+            <div className="country-details">
+              <img src={countryData.flag} alt="flag" />
+              <div className="details-text-container">
+                <h2>{countryData.name}</h2>
+                <div className="details-text">
+                  <p>
+                    <b>Native Name: </b>
+                    <span className="native-name">
+                      {countryData.nativeName}
+                    </span>
+                  </p>
+                  <p>
+                    <b>Population: </b>
+                    <span className="population">{countryData.population}</span>
+                  </p>
+                  <p>
+                    <b>Region: </b>
+                    <span className="region">{countryData.region}</span>
+                  </p>
+                  <p>
+                    <b>Sub-Region: </b>
+                    <span className="sub-region">{countryData.subregion}</span>
+                  </p>
+                  <p>
+                    <b>Capital: </b>
+                    <span className="Capital">{countryData.capital}</span>
+                  </p>
+                  <p>
+                    <b>Top Level Domain: </b>
+                    <span className="tld">{countryData.tld}</span>
+                  </p>
+                  <p>
+                    <b>Currencies: </b>
+                    <span className="Currencies">{countryData.currencies}</span>
+                  </p>
+                  <p>
+                    <b>Languages: </b>
+                    <span className="languages">{countryData.languages}</span>
+                  </p>
+                </div>
+                {countryData.borders.length !== 0 && (
+                  <div className="border-countries">
+                    <b>Border countries:</b>&nbsp;
+                    {countryData.borders.map((border) => (
+                      <Link key={border} to={`/${border}`}>
+                        {border}
+                      </Link>
+                    ))}
+                  </div>
+                )}
               </div>
-            )}
+            </div>
           </div>
-        </div>
-      </div>
-    </main>
+        </main>
+      )}
+    </>
   );
 }
 
