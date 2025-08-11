@@ -55,23 +55,26 @@ a {
 
 .countries-container {
   margin-inline: auto;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 18px;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 32px;
   max-width: 1200px;
   margin-top: 16px;
-  display: flex;
+  display: grid;
 }
 
 .country-card {
   background-color: var(--elements-color);
   border-radius: 8px;
-  width: 250px;
   padding-bottom: 18px;
   transition: transform .2s ease-in-out;
   display: inline-block;
   overflow: hidden;
   box-shadow: 0 0 8px #0000001a;
+}
+
+.flag-container {
+  height: 160px;
+  overflow: hidden;
 }
 
 .country-card:hover {
@@ -92,7 +95,9 @@ a {
 }
 
 .country-card img {
+  object-fit: cover;
   width: 100%;
+  height: 100%;
 }
 
 .search-filter-container {
@@ -167,50 +172,33 @@ a {
   }
 }
 
+main .shimmer-card {
+  --shimmer-color: #c7c7c7;
+}
+
+main.dark .shimmer-card {
+  --shimmer-color: #445869;
+}
+
 .shimmer-card {
-  background-color: #ccc;
-  height: 350px;
+  background-color: var(--elements-color);
+  height: 338px;
 }
 
-@media (width <= 950px) {
-  .country-details {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 32px;
-    margin-top: 32px;
-  }
-
-  .details-text {
-    max-height: unset;
-  }
-
-  .country-details img {
-    width: 100%;
-    max-width: 300px;
-  }
+.shimmer-card .flag-container {
+  background-color: var(--shimmer-color);
 }
 
-.shimmer-img {
-  background-color: #ccc;
-  width: 390px;
-  height: 195px;
-  margin: 100px 0 0 100px;
+.shimmer-card .card-title {
+  background-color: var(--shimmer-color);
+  border-radius: 4px;
+  height: 32px;
 }
 
-.country-name-shim {
-  background-color: #ccc;
-  width: 200px;
-  padding: 20px;
-}
-
-.shimmer-details-text p {
-  background-color: #ccc;
-  width: 400px;
-  padding: 10px;
-}
-
-.dtc-shimmer {
-  margin-top: 100px;
+.shimmer-card p {
+  background-color: var(--shimmer-color);
+  border-radius: 4px;
+  height: 22px;
 }
 
 :root {
@@ -301,6 +289,40 @@ body.dark {
   .country-details img {
     width: 100%;
     max-width: 300px;
+  }
+}
+
+.shimmer .flag {
+  background-color: var(--elements-color);
+  border-radius: 4px;
+  width: 40%;
+  height: 240px;
+}
+
+.shimmer .title {
+  background-color: var(--elements-color);
+  border-radius: 4px;
+  height: 36px;
+}
+
+.country-details.shimmer p {
+  background-color: var(--elements-color);
+  border-radius: 2px;
+  height: 22px;
+}
+
+.country-details.shimmer p:last-child {
+  width: 50%;
+}
+
+.details-text-container {
+  flex-grow: 1;
+}
+
+@media (width <= 940px) {
+  .shimmer .flag, .details-text-container {
+    width: 100%;
+    max-width: 400px;
   }
 }
 /*# sourceMappingURL=Countries API Project.aa436662.css.map */

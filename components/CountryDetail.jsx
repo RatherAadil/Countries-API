@@ -1,30 +1,30 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./countryDetail.css";
 import { Link, useLocation, useParams } from "react-router";
 import CountryDetailShimmer from "./CountryDetailShimmer";
-import { ThemeContext } from "../contexts/ThemeContext";
+import { useTheme } from "../hooks/useTheme";
 function CountryDetail() {
   const params = useParams();
   const { state } = useLocation();
   const countryName = params.country;
   const [countryData, setCountryData] = useState(null);
   const [notFound, setNotFound] = useState(false);
-  const [isDark] = useContext(ThemeContext);
+  const [isDark] = useTheme();
 
   function updateCountryData(data) {
     setCountryData({
       flag: data.flags.svg,
       name: data.name.common,
-      nativeName: Object.values(data.name.nativeName)[0].common,
+      nativeName: Object.values(data.name.nativeName || {})[0]?.common,
       population: data.population,
       region: data.region,
       subregion: data.subregion,
       capital: data.capital.join(" "),
       tld: data.tld,
-      currencies: Object.values(data.currencies)
+      currencies: Object.values(data.currencies || {})
         .map((currency) => currency.name)
         .join(", "),
-      languages: Object.values(data.languages)
+      languages: Object.values(data.languages || {})
         .map((language) => language)
         .join(", "),
       borders: [],
@@ -65,19 +65,20 @@ function CountryDetail() {
   }
   return (
     <>
-      {countryData === null ? (
-        <CountryDetailShimmer />
-      ) : (
-        <main className={` ${isDark ? "dark" : ""}`}>
-          <div className="country-details-container">
-            <span
-              className="back-btn"
-              onClick={() => {
-                history.back();
-              }}
-            >
-              <i className="fa-solid fa-arrow-left-long"></i>&nbsp;Back
-            </span>
+      <main className={` ${isDark ? "dark" : ""}`}>
+        <div className="country-details-container">
+          <span
+            className="back-btn"
+            onClick={() => {
+              history.back();
+            }}
+          >
+            <i className="fa-solid fa-arrow-left-long"></i>&nbsp;Back
+          </span>
+
+          {countryData === null ? (
+            <CountryDetailShimmer />
+          ) : (
             <div className="country-details">
               <img src={countryData.flag} alt="flag" />
               <div className="details-text-container">
@@ -86,7 +87,7 @@ function CountryDetail() {
                   <p>
                     <b>Native Name: </b>
                     <span className="native-name">
-                      {countryData.nativeName}
+                      {countryData.nativeName || countryData.name}
                     </span>
                   </p>
                   <p>
@@ -130,9 +131,9 @@ function CountryDetail() {
                 )}
               </div>
             </div>
-          </div>
-        </main>
-      )}
+          )}
+        </div>
+      </main>
     </>
   );
 }

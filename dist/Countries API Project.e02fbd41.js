@@ -18511,11 +18511,11 @@ var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _reactRouter = require("react-router");
-var _themeContext = require("../contexts/ThemeContext");
+var _useTheme = require("../hooks/useTheme");
 var _s = $RefreshSig$();
 function Header() {
     _s();
-    const [isDark, setIsDark] = (0, _react.useContext)((0, _themeContext.ThemeContext));
+    const [isDark, setIsDark] = (0, _useTheme.useTheme)();
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("header", {
         className: `header-container ${isDark ? "dark" : ""}`,
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -18571,7 +18571,11 @@ function Header() {
         columnNumber: 5
     }, this);
 }
-_s(Header, "f9iH0Quh/oW1YGsqKgNKCKTuCE8=");
+_s(Header, "ujT4kM5ZGT/6Hjhi5n8jzCo7Ybw=", false, function() {
+    return [
+        (0, _useTheme.useTheme)
+    ];
+});
 _c = Header;
 exports.default = Header;
 var _c;
@@ -18582,7 +18586,7 @@ $RefreshReg$(_c, "Header");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","react-router":"2jawN","../contexts/ThemeContext":"1y6Ee"}],"2jawN":[function(require,module,exports,__globalThis) {
+},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","react-router":"2jawN","../hooks/useTheme":"6MXfj"}],"2jawN":[function(require,module,exports,__globalThis) {
 /**
  * react-router v7.8.0
  *
@@ -26976,7 +26980,36 @@ function htmlEscape(str) {
     return str.replace(ESCAPE_REGEX2, (match)=>ESCAPE_LOOKUP2[match]);
 }
 
-},{"react":"jMk1U","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"1y6Ee":[function(require,module,exports,__globalThis) {
+},{"react":"jMk1U","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"6MXfj":[function(require,module,exports,__globalThis) {
+var $parcel$ReactRefreshHelpers$e370 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+$parcel$ReactRefreshHelpers$e370.init();
+var prevRefreshReg = globalThis.$RefreshReg$;
+var prevRefreshSig = globalThis.$RefreshSig$;
+$parcel$ReactRefreshHelpers$e370.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "useTheme", ()=>useTheme);
+var _react = require("react");
+var _themeContext = require("../contexts/ThemeContext");
+var _s = $RefreshSig$();
+function useTheme() {
+    _s();
+    const [isDark, setIsDark] = (0, _react.useContext)((0, _themeContext.ThemeContext));
+    return [
+        isDark,
+        setIsDark
+    ];
+}
+_s(useTheme, "f9iH0Quh/oW1YGsqKgNKCKTuCE8=");
+
+  $parcel$ReactRefreshHelpers$e370.postlude(module);
+} finally {
+  globalThis.$RefreshReg$ = prevRefreshReg;
+  globalThis.$RefreshSig$ = prevRefreshSig;
+}
+},{"react":"jMk1U","../contexts/ThemeContext":"1y6Ee","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"1y6Ee":[function(require,module,exports,__globalThis) {
 var $parcel$ReactRefreshHelpers$3eea = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 $parcel$ReactRefreshHelpers$3eea.init();
 var prevRefreshReg = globalThis.$RefreshReg$;
@@ -27068,12 +27101,12 @@ var _selectMenuDefault = parcelHelpers.interopDefault(_selectMenu);
 var _appCss = require("../app.css");
 var _countriesList = require("./CountriesList");
 var _countriesListDefault = parcelHelpers.interopDefault(_countriesList);
-var _themeContext = require("../contexts/ThemeContext");
+var _useTheme = require("../hooks/useTheme");
 var _s = $RefreshSig$();
 function Home() {
     _s();
     const [query, setQuery] = (0, _react.useState)("");
-    const [isDark] = (0, _react.useContext)((0, _themeContext.ThemeContext));
+    const [isDark] = (0, _useTheme.useTheme)();
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("main", {
             className: ` ${isDark ? "dark" : ""}`,
@@ -27088,7 +27121,9 @@ function Home() {
                             lineNumber: 15,
                             columnNumber: 11
                         }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _selectMenuDefault.default), {}, void 0, false, {
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _selectMenuDefault.default), {
+                            setQuery: setQuery
+                        }, void 0, false, {
                             fileName: "components/Home.jsx",
                             lineNumber: 16,
                             columnNumber: 11
@@ -27114,7 +27149,11 @@ function Home() {
         }, this)
     }, void 0, false);
 }
-_s(Home, "PfMJXTtnKOkrjY8PrhiIiagMs3w=");
+_s(Home, "fXxEsguXFd/kmoGV0D/8WSB+Vyk=", false, function() {
+    return [
+        (0, _useTheme.useTheme)
+    ];
+});
 _c = Home;
 exports.default = Home;
 var _c;
@@ -27125,7 +27164,7 @@ $RefreshReg$(_c, "Home");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","./SearchBar":"gbndZ","./SelectMenu":"dihlm","../app.css":"4slL4","./CountriesList":"h6Esi","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","../contexts/ThemeContext":"1y6Ee"}],"gbndZ":[function(require,module,exports,__globalThis) {
+},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","./SearchBar":"gbndZ","./SelectMenu":"dihlm","../app.css":"4slL4","./CountriesList":"h6Esi","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","../hooks/useTheme":"6MXfj"}],"gbndZ":[function(require,module,exports,__globalThis) {
 var $parcel$ReactRefreshHelpers$2cbf = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 $parcel$ReactRefreshHelpers$2cbf.init();
 var prevRefreshReg = globalThis.$RefreshReg$;
@@ -27188,16 +27227,19 @@ parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
-function SelectMenu() {
+function SelectMenu({ setQuery }) {
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("select", {
         className: "filter-by-region",
+        onChange: (e)=>{
+            setQuery(e.target.value.toLowerCase());
+        },
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
                 hidden: true,
                 children: "Filter by region"
             }, void 0, false, {
                 fileName: "components/SelectMenu.jsx",
-                lineNumber: 6,
+                lineNumber: 11,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
@@ -27205,15 +27247,15 @@ function SelectMenu() {
                 children: "Africa"
             }, void 0, false, {
                 fileName: "components/SelectMenu.jsx",
-                lineNumber: 7,
+                lineNumber: 12,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
-                value: "America",
-                children: "America"
+                value: "Americas",
+                children: "Americas"
             }, void 0, false, {
                 fileName: "components/SelectMenu.jsx",
-                lineNumber: 8,
+                lineNumber: 13,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
@@ -27221,7 +27263,7 @@ function SelectMenu() {
                 children: "Asia"
             }, void 0, false, {
                 fileName: "components/SelectMenu.jsx",
-                lineNumber: 9,
+                lineNumber: 14,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
@@ -27229,7 +27271,7 @@ function SelectMenu() {
                 children: "Europe"
             }, void 0, false, {
                 fileName: "components/SelectMenu.jsx",
-                lineNumber: 10,
+                lineNumber: 15,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
@@ -27237,7 +27279,7 @@ function SelectMenu() {
                 children: "Oceania"
             }, void 0, false, {
                 fileName: "components/SelectMenu.jsx",
-                lineNumber: 11,
+                lineNumber: 16,
                 columnNumber: 7
             }, this)
         ]
@@ -27293,7 +27335,7 @@ function CountriesList({ query }) {
             columnNumber: 9
         }, this) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
             className: "countries-container",
-            children: countriesData.filter((country)=>country.name.common.toLowerCase().includes(query)).map((country)=>{
+            children: countriesData.filter((country)=>country.name.common.toLowerCase().includes(query) || country.region.toLowerCase().includes(query)).map((country)=>{
                 return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _countryCardDefault.default), {
                     name: country.name.common,
                     flag: country.flags.svg,
@@ -27303,7 +27345,7 @@ function CountriesList({ query }) {
                     data: country
                 }, country.name.common, false, {
                     fileName: "components/CountriesList.jsx",
-                    lineNumber: 31,
+                    lineNumber: 33,
                     columnNumber: 17
                 }, this);
             })
@@ -27345,9 +27387,16 @@ function CountryCard({ name, flag, population, region, capital, data }) {
         to: `/${name}`,
         state: data,
         children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                src: flag,
-                alt: name + " Flag"
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "flag-container",
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                    src: flag,
+                    alt: name + " Flag"
+                }, void 0, false, {
+                    fileName: "components/CountryCard.jsx",
+                    lineNumber: 8,
+                    columnNumber: 9
+                }, this)
             }, void 0, false, {
                 fileName: "components/CountryCard.jsx",
                 lineNumber: 7,
@@ -27361,7 +27410,7 @@ function CountryCard({ name, flag, population, region, capital, data }) {
                         children: name
                     }, void 0, false, {
                         fileName: "components/CountryCard.jsx",
-                        lineNumber: 9,
+                        lineNumber: 11,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -27370,14 +27419,14 @@ function CountryCard({ name, flag, population, region, capital, data }) {
                                 children: "Population: "
                             }, void 0, false, {
                                 fileName: "components/CountryCard.jsx",
-                                lineNumber: 11,
+                                lineNumber: 13,
                                 columnNumber: 11
                             }, this),
                             population.toLocaleString("en-IN")
                         ]
                     }, void 0, true, {
                         fileName: "components/CountryCard.jsx",
-                        lineNumber: 10,
+                        lineNumber: 12,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -27386,14 +27435,14 @@ function CountryCard({ name, flag, population, region, capital, data }) {
                                 children: "Region: "
                             }, void 0, false, {
                                 fileName: "components/CountryCard.jsx",
-                                lineNumber: 15,
+                                lineNumber: 17,
                                 columnNumber: 11
                             }, this),
                             region
                         ]
                     }, void 0, true, {
                         fileName: "components/CountryCard.jsx",
-                        lineNumber: 14,
+                        lineNumber: 16,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -27402,20 +27451,20 @@ function CountryCard({ name, flag, population, region, capital, data }) {
                                 children: "Capital: "
                             }, void 0, false, {
                                 fileName: "components/CountryCard.jsx",
-                                lineNumber: 19,
+                                lineNumber: 21,
                                 columnNumber: 11
                             }, this),
                             capital
                         ]
                     }, void 0, true, {
                         fileName: "components/CountryCard.jsx",
-                        lineNumber: 18,
+                        lineNumber: 20,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "components/CountryCard.jsx",
-                lineNumber: 8,
+                lineNumber: 10,
                 columnNumber: 7
             }, this)
         ]
@@ -27445,32 +27494,73 @@ $parcel$ReactRefreshHelpers$0f8a.prelude(module);
 try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>CountriesListShimmer);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _countriesListShimmerCss = require("./CountriesListShimmer.css");
 function CountriesListShimmer() {
+    // new Array(10).fill('')
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "countries-container",
         children: Array.from({
-            length: 12
+            length: 10
         }).map((el, i)=>{
             return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "country-card shimmer-card"
-            }, i, false, {
+                className: "country-card shimmer-card",
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        className: "flag-container"
+                    }, void 0, false, {
+                        fileName: "components/CountriesListShimmer.jsx",
+                        lineNumber: 13,
+                        columnNumber: 13
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        className: "card-text",
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
+                                className: "card-title"
+                            }, void 0, false, {
+                                fileName: "components/CountriesListShimmer.jsx",
+                                lineNumber: 15,
+                                columnNumber: 15
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {}, void 0, false, {
+                                fileName: "components/CountriesListShimmer.jsx",
+                                lineNumber: 16,
+                                columnNumber: 15
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {}, void 0, false, {
+                                fileName: "components/CountriesListShimmer.jsx",
+                                lineNumber: 17,
+                                columnNumber: 15
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {}, void 0, false, {
+                                fileName: "components/CountriesListShimmer.jsx",
+                                lineNumber: 18,
+                                columnNumber: 15
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "components/CountriesListShimmer.jsx",
+                        lineNumber: 14,
+                        columnNumber: 13
+                    }, this)
+                ]
+            }, i, true, {
                 fileName: "components/CountriesListShimmer.jsx",
-                lineNumber: 7,
-                columnNumber: 16
+                lineNumber: 12,
+                columnNumber: 11
             }, this);
         })
     }, void 0, false, {
         fileName: "components/CountriesListShimmer.jsx",
-        lineNumber: 5,
+        lineNumber: 9,
         columnNumber: 5
     }, this);
 }
 _c = CountriesListShimmer;
-exports.default = CountriesListShimmer;
 var _c;
 $RefreshReg$(_c, "CountriesListShimmer");
 
@@ -27542,7 +27632,7 @@ var _countryDetailCss = require("./countryDetail.css");
 var _reactRouter = require("react-router");
 var _countryDetailShimmer = require("./CountryDetailShimmer");
 var _countryDetailShimmerDefault = parcelHelpers.interopDefault(_countryDetailShimmer);
-var _themeContext = require("../contexts/ThemeContext");
+var _useTheme = require("../hooks/useTheme");
 var _s = $RefreshSig$();
 function CountryDetail() {
     _s();
@@ -27551,19 +27641,19 @@ function CountryDetail() {
     const countryName = params.country;
     const [countryData, setCountryData] = (0, _react.useState)(null);
     const [notFound, setNotFound] = (0, _react.useState)(false);
-    const [isDark] = (0, _react.useContext)((0, _themeContext.ThemeContext));
+    const [isDark] = (0, _useTheme.useTheme)();
     function updateCountryData(data) {
         setCountryData({
             flag: data.flags.svg,
             name: data.name.common,
-            nativeName: Object.values(data.name.nativeName)[0].common,
+            nativeName: Object.values(data.name.nativeName || {})[0]?.common,
             population: data.population,
             region: data.region,
             subregion: data.subregion,
             capital: data.capital.join(" "),
             tld: data.tld,
-            currencies: Object.values(data.currencies).map((currency)=>currency.name).join(", "),
-            languages: Object.values(data.languages).map((language)=>language).join(", "),
+            currencies: Object.values(data.currencies || {}).map((currency)=>currency.name).join(", "),
+            languages: Object.values(data.languages || {}).map((language)=>language).join(", "),
             borders: []
         });
         if (!data.borders) data.borders = [];
@@ -27597,11 +27687,7 @@ function CountryDetail() {
         columnNumber: 12
     }, this);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
-        children: countryData === null ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _countryDetailShimmerDefault.default), {}, void 0, false, {
-            fileName: "components/CountryDetail.jsx",
-            lineNumber: 69,
-            columnNumber: 9
-        }, this) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("main", {
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("main", {
             className: ` ${isDark ? "dark" : ""}`,
             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 className: "country-details-container",
@@ -27616,17 +27702,21 @@ function CountryDetail() {
                                 className: "fa-solid fa-arrow-left-long"
                             }, void 0, false, {
                                 fileName: "components/CountryDetail.jsx",
-                                lineNumber: 79,
-                                columnNumber: 15
+                                lineNumber: 76,
+                                columnNumber: 13
                             }, this),
                             "\xa0Back"
                         ]
                     }, void 0, true, {
                         fileName: "components/CountryDetail.jsx",
-                        lineNumber: 73,
-                        columnNumber: 13
+                        lineNumber: 70,
+                        columnNumber: 11
                     }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                    countryData === null ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _countryDetailShimmerDefault.default), {}, void 0, false, {
+                        fileName: "components/CountryDetail.jsx",
+                        lineNumber: 80,
+                        columnNumber: 13
+                    }, this) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                         className: "country-details",
                         children: [
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
@@ -27634,7 +27724,7 @@ function CountryDetail() {
                                 alt: "flag"
                             }, void 0, false, {
                                 fileName: "components/CountryDetail.jsx",
-                                lineNumber: 82,
+                                lineNumber: 83,
                                 columnNumber: 15
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27644,7 +27734,7 @@ function CountryDetail() {
                                         children: countryData.name
                                     }, void 0, false, {
                                         fileName: "components/CountryDetail.jsx",
-                                        lineNumber: 84,
+                                        lineNumber: 85,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27656,21 +27746,21 @@ function CountryDetail() {
                                                         children: "Native Name: "
                                                     }, void 0, false, {
                                                         fileName: "components/CountryDetail.jsx",
-                                                        lineNumber: 87,
+                                                        lineNumber: 88,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
                                                         className: "native-name",
-                                                        children: countryData.nativeName
+                                                        children: countryData.nativeName || countryData.name
                                                     }, void 0, false, {
                                                         fileName: "components/CountryDetail.jsx",
-                                                        lineNumber: 88,
+                                                        lineNumber: 89,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "components/CountryDetail.jsx",
-                                                lineNumber: 86,
+                                                lineNumber: 87,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -27679,7 +27769,7 @@ function CountryDetail() {
                                                         children: "Population: "
                                                     }, void 0, false, {
                                                         fileName: "components/CountryDetail.jsx",
-                                                        lineNumber: 93,
+                                                        lineNumber: 94,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
@@ -27687,13 +27777,13 @@ function CountryDetail() {
                                                         children: countryData.population
                                                     }, void 0, false, {
                                                         fileName: "components/CountryDetail.jsx",
-                                                        lineNumber: 94,
+                                                        lineNumber: 95,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "components/CountryDetail.jsx",
-                                                lineNumber: 92,
+                                                lineNumber: 93,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -27702,7 +27792,7 @@ function CountryDetail() {
                                                         children: "Region: "
                                                     }, void 0, false, {
                                                         fileName: "components/CountryDetail.jsx",
-                                                        lineNumber: 97,
+                                                        lineNumber: 98,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
@@ -27710,13 +27800,13 @@ function CountryDetail() {
                                                         children: countryData.region
                                                     }, void 0, false, {
                                                         fileName: "components/CountryDetail.jsx",
-                                                        lineNumber: 98,
+                                                        lineNumber: 99,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "components/CountryDetail.jsx",
-                                                lineNumber: 96,
+                                                lineNumber: 97,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -27725,7 +27815,7 @@ function CountryDetail() {
                                                         children: "Sub-Region: "
                                                     }, void 0, false, {
                                                         fileName: "components/CountryDetail.jsx",
-                                                        lineNumber: 101,
+                                                        lineNumber: 102,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
@@ -27733,13 +27823,13 @@ function CountryDetail() {
                                                         children: countryData.subregion
                                                     }, void 0, false, {
                                                         fileName: "components/CountryDetail.jsx",
-                                                        lineNumber: 102,
+                                                        lineNumber: 103,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "components/CountryDetail.jsx",
-                                                lineNumber: 100,
+                                                lineNumber: 101,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -27748,7 +27838,7 @@ function CountryDetail() {
                                                         children: "Capital: "
                                                     }, void 0, false, {
                                                         fileName: "components/CountryDetail.jsx",
-                                                        lineNumber: 105,
+                                                        lineNumber: 106,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
@@ -27756,13 +27846,13 @@ function CountryDetail() {
                                                         children: countryData.capital
                                                     }, void 0, false, {
                                                         fileName: "components/CountryDetail.jsx",
-                                                        lineNumber: 106,
+                                                        lineNumber: 107,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "components/CountryDetail.jsx",
-                                                lineNumber: 104,
+                                                lineNumber: 105,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -27771,7 +27861,7 @@ function CountryDetail() {
                                                         children: "Top Level Domain: "
                                                     }, void 0, false, {
                                                         fileName: "components/CountryDetail.jsx",
-                                                        lineNumber: 109,
+                                                        lineNumber: 110,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
@@ -27779,13 +27869,13 @@ function CountryDetail() {
                                                         children: countryData.tld
                                                     }, void 0, false, {
                                                         fileName: "components/CountryDetail.jsx",
-                                                        lineNumber: 110,
+                                                        lineNumber: 111,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "components/CountryDetail.jsx",
-                                                lineNumber: 108,
+                                                lineNumber: 109,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -27794,7 +27884,7 @@ function CountryDetail() {
                                                         children: "Currencies: "
                                                     }, void 0, false, {
                                                         fileName: "components/CountryDetail.jsx",
-                                                        lineNumber: 113,
+                                                        lineNumber: 114,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
@@ -27802,13 +27892,13 @@ function CountryDetail() {
                                                         children: countryData.currencies
                                                     }, void 0, false, {
                                                         fileName: "components/CountryDetail.jsx",
-                                                        lineNumber: 114,
+                                                        lineNumber: 115,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "components/CountryDetail.jsx",
-                                                lineNumber: 112,
+                                                lineNumber: 113,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -27817,7 +27907,7 @@ function CountryDetail() {
                                                         children: "Languages: "
                                                     }, void 0, false, {
                                                         fileName: "components/CountryDetail.jsx",
-                                                        lineNumber: 117,
+                                                        lineNumber: 118,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
@@ -27825,19 +27915,19 @@ function CountryDetail() {
                                                         children: countryData.languages
                                                     }, void 0, false, {
                                                         fileName: "components/CountryDetail.jsx",
-                                                        lineNumber: 118,
+                                                        lineNumber: 119,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "components/CountryDetail.jsx",
-                                                lineNumber: 116,
+                                                lineNumber: 117,
                                                 columnNumber: 19
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "components/CountryDetail.jsx",
-                                        lineNumber: 85,
+                                        lineNumber: 86,
                                         columnNumber: 17
                                     }, this),
                                     countryData.borders.length !== 0 && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27847,7 +27937,7 @@ function CountryDetail() {
                                                 children: "Border countries:"
                                             }, void 0, false, {
                                                 fileName: "components/CountryDetail.jsx",
-                                                lineNumber: 123,
+                                                lineNumber: 124,
                                                 columnNumber: 21
                                             }, this),
                                             "\xa0",
@@ -27856,44 +27946,45 @@ function CountryDetail() {
                                                     children: border
                                                 }, border, false, {
                                                     fileName: "components/CountryDetail.jsx",
-                                                    lineNumber: 125,
+                                                    lineNumber: 126,
                                                     columnNumber: 23
                                                 }, this))
                                         ]
                                     }, void 0, true, {
                                         fileName: "components/CountryDetail.jsx",
-                                        lineNumber: 122,
+                                        lineNumber: 123,
                                         columnNumber: 19
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "components/CountryDetail.jsx",
-                                lineNumber: 83,
+                                lineNumber: 84,
                                 columnNumber: 15
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "components/CountryDetail.jsx",
-                        lineNumber: 81,
+                        lineNumber: 82,
                         columnNumber: 13
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "components/CountryDetail.jsx",
-                lineNumber: 72,
-                columnNumber: 11
+                lineNumber: 69,
+                columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "components/CountryDetail.jsx",
-            lineNumber: 71,
-            columnNumber: 9
+            lineNumber: 68,
+            columnNumber: 7
         }, this)
     }, void 0, false);
 }
-_s(CountryDetail, "mP4bkzaQ8MtyLNa9aYZbojP/SsE=", false, function() {
+_s(CountryDetail, "5hflYmR6nA4l8aZrJcS3B+uP8p4=", false, function() {
     return [
         (0, _reactRouter.useParams),
-        (0, _reactRouter.useLocation)
+        (0, _reactRouter.useLocation),
+        (0, _useTheme.useTheme)
     ];
 });
 _c = CountryDetail;
@@ -27906,7 +27997,7 @@ $RefreshReg$(_c, "CountryDetail");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","./countryDetail.css":"ifXXw","react-router":"2jawN","./CountryDetailShimmer":"jtiyc","../contexts/ThemeContext":"1y6Ee"}],"ifXXw":[function() {},{}],"jtiyc":[function(require,module,exports,__globalThis) {
+},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","./countryDetail.css":"ifXXw","react-router":"2jawN","./CountryDetailShimmer":"jtiyc","../hooks/useTheme":"6MXfj"}],"ifXXw":[function() {},{}],"jtiyc":[function(require,module,exports,__globalThis) {
 var $parcel$ReactRefreshHelpers$fbf4 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 $parcel$ReactRefreshHelpers$fbf4.init();
 var prevRefreshReg = globalThis.$RefreshReg$;
@@ -27916,88 +28007,75 @@ $parcel$ReactRefreshHelpers$fbf4.prelude(module);
 try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>CountryDetailShimmer);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _countryDetailShimmerCss = require("./CountryDetailShimmer.css");
-var _countryDetailCss = require("./CountryDetail.css");
 function CountryDetailShimmer() {
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "country-details-container",
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-            className: "country-details shimmer-datails",
-            children: [
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                    className: "shimmer-img"
-                }, void 0, false, {
-                    fileName: "components/CountryDetailShimmer.jsx",
-                    lineNumber: 8,
-                    columnNumber: 9
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                    className: "details-text-container dtc-shimmer",
-                    children: [
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
-                            className: "country-name-shim"
-                        }, void 0, false, {
-                            fileName: "components/CountryDetailShimmer.jsx",
-                            lineNumber: 10,
-                            columnNumber: 11
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                            className: "details-text shimmer-details-text",
-                            children: [
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {}, void 0, false, {
-                                    fileName: "components/CountryDetailShimmer.jsx",
-                                    lineNumber: 12,
-                                    columnNumber: 13
-                                }, this),
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {}, void 0, false, {
-                                    fileName: "components/CountryDetailShimmer.jsx",
-                                    lineNumber: 13,
-                                    columnNumber: 13
-                                }, this),
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {}, void 0, false, {
-                                    fileName: "components/CountryDetailShimmer.jsx",
-                                    lineNumber: 14,
-                                    columnNumber: 13
-                                }, this),
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {}, void 0, false, {
-                                    fileName: "components/CountryDetailShimmer.jsx",
-                                    lineNumber: 15,
-                                    columnNumber: 13
-                                }, this),
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {}, void 0, false, {
-                                    fileName: "components/CountryDetailShimmer.jsx",
-                                    lineNumber: 16,
-                                    columnNumber: 13
-                                }, this)
-                            ]
-                        }, void 0, true, {
-                            fileName: "components/CountryDetailShimmer.jsx",
-                            lineNumber: 11,
-                            columnNumber: 11
-                        }, this)
-                    ]
-                }, void 0, true, {
-                    fileName: "components/CountryDetailShimmer.jsx",
-                    lineNumber: 9,
-                    columnNumber: 9
-                }, this)
-            ]
-        }, void 0, true, {
-            fileName: "components/CountryDetailShimmer.jsx",
-            lineNumber: 7,
-            columnNumber: 7
-        }, this)
-    }, void 0, false, {
+        className: "country-details shimmer",
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "flag"
+            }, void 0, false, {
+                fileName: "components/CountryDetailShimmer.jsx",
+                lineNumber: 8,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "details-text-container",
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+                        className: "title"
+                    }, void 0, false, {
+                        fileName: "components/CountryDetailShimmer.jsx",
+                        lineNumber: 10,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        className: "",
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {}, void 0, false, {
+                                fileName: "components/CountryDetailShimmer.jsx",
+                                lineNumber: 12,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {}, void 0, false, {
+                                fileName: "components/CountryDetailShimmer.jsx",
+                                lineNumber: 13,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {}, void 0, false, {
+                                fileName: "components/CountryDetailShimmer.jsx",
+                                lineNumber: 14,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {}, void 0, false, {
+                                fileName: "components/CountryDetailShimmer.jsx",
+                                lineNumber: 15,
+                                columnNumber: 11
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "components/CountryDetailShimmer.jsx",
+                        lineNumber: 11,
+                        columnNumber: 9
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "components/CountryDetailShimmer.jsx",
+                lineNumber: 9,
+                columnNumber: 7
+            }, this)
+        ]
+    }, void 0, true, {
         fileName: "components/CountryDetailShimmer.jsx",
-        lineNumber: 6,
+        lineNumber: 7,
         columnNumber: 5
     }, this);
 }
 _c = CountryDetailShimmer;
-exports.default = CountryDetailShimmer;
 var _c;
 $RefreshReg$(_c, "CountryDetailShimmer");
 
@@ -28006,6 +28084,6 @@ $RefreshReg$(_c, "CountryDetailShimmer");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","./CountryDetailShimmer.css":"9S3xn","./CountryDetail.css":"jpfWC"}],"9S3xn":[function() {},{}],"jpfWC":[function() {},{}]},["kxwl6","jOXmm"], "jOXmm", "parcelRequireb189", {}, null, null, "http://localhost:1234")
+},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","./CountryDetailShimmer.css":"9S3xn"}],"9S3xn":[function() {},{}]},["kxwl6","jOXmm"], "jOXmm", "parcelRequireb189", {}, null, null, "http://localhost:1234")
 
 //# sourceMappingURL=Countries API Project.e02fbd41.js.map
