@@ -18467,34 +18467,26 @@ var _header = require("./components/Header");
 var _headerDefault = parcelHelpers.interopDefault(_header);
 var _reactRouter = require("react-router");
 var _themeContext = require("./contexts/ThemeContext");
-var _s = $RefreshSig$();
 function App() {
-    _s();
-    const [isDark, setIsDark] = (0, _react.useState)(JSON.parse(localStorage.getItem("isDarkMode")));
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _themeContext.ThemeContext).Provider, {
-        value: [
-            isDark,
-            setIsDark
-        ],
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _themeContext.ThemeProvider), {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _headerDefault.default), {}, void 0, false, {
                 fileName: "App.js",
-                lineNumber: 13,
+                lineNumber: 9,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouter.Outlet), {}, void 0, false, {
                 fileName: "App.js",
-                lineNumber: 14,
+                lineNumber: 10,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "App.js",
-        lineNumber: 12,
+        lineNumber: 8,
         columnNumber: 5
     }, this);
 }
-_s(App, "ipdCq6ubO5tZw0PcrSbET+6xTQA=");
 _c = App;
 exports.default = App;
 var _c;
@@ -26995,15 +26987,37 @@ try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "ThemeContext", ()=>ThemeContext);
+parcelHelpers.export(exports, "ThemeProvider", ()=>ThemeProvider);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
+var _s = $RefreshSig$();
 const ThemeContext = /*#__PURE__*/ (0, _react.createContext)();
+function ThemeProvider({ children }) {
+    _s();
+    const [isDark, setIsDark] = (0, _react.useState)(JSON.parse(localStorage.getItem("isDarkMode")));
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(ThemeContext.Provider, {
+        value: [
+            isDark,
+            setIsDark
+        ],
+        children: children
+    }, void 0, false, {
+        fileName: "contexts/ThemeContext.jsx",
+        lineNumber: 9,
+        columnNumber: 5
+    }, this);
+}
+_s(ThemeProvider, "ipdCq6ubO5tZw0PcrSbET+6xTQA=");
+_c = ThemeProvider;
+var _c;
+$RefreshReg$(_c, "ThemeProvider");
 
   $parcel$ReactRefreshHelpers$3eea.postlude(module);
 } finally {
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react":"jMk1U","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"erO0V":[function(require,module,exports,__globalThis) {
+},{"react":"jMk1U","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","react/jsx-dev-runtime":"dVPUn"}],"erO0V":[function(require,module,exports,__globalThis) {
 var $parcel$ReactRefreshHelpers$23ef = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 $parcel$ReactRefreshHelpers$23ef.init();
 var prevRefreshReg = globalThis.$RefreshReg$;
