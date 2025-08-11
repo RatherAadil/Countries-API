@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./countryDetail.css";
-import { Link, useLocation, useParams } from "react-router";
+import { Link, useLocation, useOutletContext, useParams } from "react-router";
 import CountryDetailShimmer from "./CountryDetailShimmer";
 function CountryDetail() {
   const params = useParams();
@@ -8,6 +8,7 @@ function CountryDetail() {
   const countryName = params.country;
   const [countryData, setCountryData] = useState(null);
   const [notFound, setNotFound] = useState(false);
+  const [isDark] = useOutletContext();
 
   function updateCountryData(data) {
     setCountryData({
@@ -66,7 +67,7 @@ function CountryDetail() {
       {countryData === null ? (
         <CountryDetailShimmer />
       ) : (
-        <main>
+        <main className={` ${isDark ? "dark" : ""}`}>
           <div className="country-details-container">
             <span
               className="back-btn"
