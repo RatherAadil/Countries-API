@@ -39,3 +39,21 @@ The app allows users to search, filter by region, and view detailed information 
 ```bash
 git clone https://github.com/RatherAadil/Countries-API.git
 ```
+
+### 2️⃣ Navigate into the project folder
+
+```bash
+cd rest-countries-react
+```
+
+### 3️⃣ Install dependencies
+
+```bash
+npm install
+```
+
+### 4️⃣ Start the development server
+
+```bash
+npm start
+```
