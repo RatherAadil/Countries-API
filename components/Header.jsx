@@ -1,13 +1,9 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router";
+import { ThemeContext } from "../contexts/ThemeContext";
 
-function Header({ theme }) {
-  const [isDark, setIsDark] = theme;
-  // if (isDark) {
-  //   document.body.classList.add("dark");
-  // } else {
-  //   document.body.classList.remove("dark");
-  // }
+function Header() {
+  const [isDark, setIsDark] = useContext(ThemeContext);
   return (
     <header className={`header-container ${isDark ? "dark" : ""}`}>
       <div className="header-content">
